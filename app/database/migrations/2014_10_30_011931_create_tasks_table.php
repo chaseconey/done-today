@@ -16,9 +16,10 @@ class CreateTasksTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('name');
+			$table->boolean('done');
 			$table->text('description')->nullable();
 			$table->double('estimation', 4,2)->nullable();
-			$table->integer('resolution_id');
+			$table->integer('resolution_id')->nullable();
 			$table->timestamps();
 		});
 	}

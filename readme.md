@@ -16,6 +16,8 @@ Simple app that tracks what you have done every day. Used primarily for supporti
 * PHP >= 5.4
 * Mysql
 * Composer
+* bower
+* [bower-installer](https://www.npmjs.org/package/bower-installer)
 
 ### Installation
 
@@ -23,4 +25,6 @@ Simple app that tracks what you have done every day. Used primarily for supporti
 git clone git@github.com:chaseconey/done-today.git
 composer install
 php artisan migrate
+bower install
+bower-installer
 ```

@@ -15,3 +15,11 @@ Route::get('/', 'DashboardController@index');
 
 Route::resource('resolutions', 'ResolutionsController');
 Route::resource('tasks', 'TasksController');
+
+// API
+Route::group(['namespace' => 'api',  'prefix' => 'api'], function() {
+
+	Route::put('tasks/{task_id}/toggle', 'TasksController@toggle');
+
+	Route::resource('tasks', 'TasksController');
+});

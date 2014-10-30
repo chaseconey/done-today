@@ -7,8 +7,7 @@ class ResolutionsController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function index()
-	{
+	public function index() {
 		$resolutions = Resolution::all();
 
 		return View::make('resolutions.index', compact('resolutions'));
@@ -19,8 +18,7 @@ class ResolutionsController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function create()
-	{
+	public function create() {
 		return View::make('resolutions.create');
 	}
 
@@ -29,13 +27,13 @@ class ResolutionsController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function store()
-	{
+	public function store() {
 		$validator = Validator::make($data = Input::all(), Resolution::$rules);
 
-		if ($validator->fails())
-		{
-			return Redirect::back()->withErrors($validator)->withInput();
+		if ($validator->fails()) {
+			return Redirect::back()
+				->withErrors($validator)
+				->withInput();
 		}
 
 		Resolution::create($data);
@@ -46,11 +44,11 @@ class ResolutionsController extends \BaseController {
 	/**
 	 * Display the specified resolution.
 	 *
-	 * @param  int  $id
+	 * @param  int $id
+	 *
 	 * @return Response
 	 */
-	public function show($id)
-	{
+	public function show($id) {
 		$resolution = Resolution::findOrFail($id);
 
 		return View::make('resolutions.show', compact('resolution'));
@@ -59,11 +57,11 @@ class ResolutionsController extends \BaseController {
 	/**
 	 * Show the form for editing the specified resolution.
 	 *
-	 * @param  int  $id
+	 * @param  int $id
+	 *
 	 * @return Response
 	 */
-	public function edit($id)
-	{
+	public function edit($id) {
 		$resolution = Resolution::find($id);
 
 		return View::make('resolutions.edit', compact('resolution'));
@@ -72,18 +70,19 @@ class ResolutionsController extends \BaseController {
 	/**
 	 * Update the specified resolution in storage.
 	 *
-	 * @param  int  $id
+	 * @param  int $id
+	 *
 	 * @return Response
 	 */
-	public function update($id)
-	{
+	public function update($id) {
 		$resolution = Resolution::findOrFail($id);
 
 		$validator = Validator::make($data = Input::all(), Resolution::$rules);
 
-		if ($validator->fails())
-		{
-			return Redirect::back()->withErrors($validator)->withInput();
+		if ($validator->fails()) {
+			return Redirect::back()
+				->withErrors($validator)
+				->withInput();
 		}
 
 		$resolution->update($data);
@@ -94,11 +93,11 @@ class ResolutionsController extends \BaseController {
 	/**
 	 * Remove the specified resolution from storage.
 	 *
-	 * @param  int  $id
+	 * @param  int $id
+	 *
 	 * @return Response
 	 */
-	public function destroy($id)
-	{
+	public function destroy($id) {
 		Resolution::destroy($id);
 
 		return Redirect::route('resolutions.index');

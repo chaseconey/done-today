@@ -4,21 +4,21 @@
 @section('content')
 <h1>Dashboard</h1>
 
-<section>
-	<h3>Tasks Completed Today [{{ count($tasksToday) }}]</h3>
-	<ul>
-		@foreach($tasksToday as $task)
-			<li>{{ $task->name }}</li>
-		@endforeach
-	</ul>
+@include('tasks.partials.quick_create')
+
+<section id="current">
+	<h3>Current Tasks</h3>
+	@include('tasks.partials.task', ['tasks' => $tasks])
 </section>
 
 <section>
-	<h3>Tasks Completed Yesterday [{{ count($tasksYesterday) }}]</h3>
-	<ul>
-		@foreach($tasksYesterday as $task)
-			<li>{{ $task->name }}</li>
-		@endforeach
-	</ul>
+	<h3>Tasks Completed Today [{{ count($completedToday) }}]</h3>
+	@include('tasks.partials.task', ['tasks' => $completedToday])
 </section>
+
+<section>
+	<h3>Tasks Completed Yesterday [{{ count($completedYesterday) }}]</h3>
+	@include('tasks.partials.task', ['tasks' => $completedYesterday])
+</section>
+
 @stop

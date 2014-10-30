@@ -1,6 +1,5 @@
 <?php
 
-
 class DashboardController extends BaseController {
 
 	public function index() {
@@ -8,12 +7,21 @@ class DashboardController extends BaseController {
 		$today = new DateTime('today');
 		$yesterday = new DateTime('yesterday');
 
-		$tasksToday = Task::where('created_at', '>=', $today)->get();
-		$tasksYesterday = Task::whereBetween('created_at', [$yesterday, $today])->get();
+		$tasksToday = Task::where('updated_at', '>=', $today)
+			->done()
+			->get();
+
+		$tasksYesterday = Task::whereBetween('updated_at', [$yesterday, $today])
+			->done()
+			->get();
+
+		$tasks = Task::notDone()
+			->get();
 
 		return View::make('dashboard.index')
-			->with('tasksYesterday', $tasksYesterday)
-			->with('tasksToday', $tasksToday);
+			->with('completedYesterday', $tasksYesterday)
+			->with('completedToday', $tasksToday)
+			->with('tasks', $tasks);
 	}
 
 }
