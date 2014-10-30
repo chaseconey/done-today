@@ -1,0 +1,1 @@
+/home/vagrant/done-today/app/views/resolutions/show.blade.php
