@@ -1,29 +1,19 @@
 (function ($) {
 
 	$('#container').on('click', 'input[type=checkbox]', function(e) {
-		var task = new Task(),
-			checked = $(this).is(':checked');
+		var checked = $(this).is(':checked'),
+			task_id = $(this).parent('li').data('id');
 
-		task.id = $(this).parent('li').data('id');
-		task.toggleDone(checked);
-	});
+		checked = (checked == false) ? 0 : 1;
 
-	function Task() {
-		this.id = null;
-		this.name = '';
-		this.done = null;
-	}
-
-	Task.prototype.toggleDone = function(done) {
-		var that = this;
 		$.ajax({
-			type: 'PUT',
-			url: '/api/tasks/' + that.id + '/toggle',
+			type: 'POST',
+			url: '/api/tasks/' + task_id + '/toggle',
 			dataType: 'json',
-			data: { done: done }
+			data: { done: checked }
 		}).done(function(data) {
-			that.done = data.done;
+			console.log("toggled to: " + data.done);
 		});
-	};
+	});
 
 })(jQuery);

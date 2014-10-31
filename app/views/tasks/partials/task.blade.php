@@ -4,7 +4,7 @@
 		<li @if($task->done) class="task-completed" @endif data-id="{{ $task->id }}">
 			{{ Form::checkbox($task->done, 1, $task->done) }}
 
-			@if($task->done)
+			@if($task->done && $task->resolution)
 			<small>[{{ $task->resolution->name }}]</small>
 			@endif
 
