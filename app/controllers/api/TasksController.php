@@ -2,12 +2,23 @@
 
 namespace api;
 
-use Task, Input;
+use Task, Input, Response, Validator;
 
 class TasksController extends \BaseController {
 
 	public function index() {
 		return Task::all();
+	}
+
+	public function store() {
+		$validator = Validator::make($data = Input::all(), Task::$rules);
+
+		if ($validator->fails()) {
+			return Response::json(['errors' => $validator->errors()], 422);
+		}
+
+		return Task::create($data);
+
 	}
 
 	public function toggle($id) {
