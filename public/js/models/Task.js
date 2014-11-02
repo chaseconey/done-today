@@ -31,7 +31,7 @@
 	App.Task.prototype.toggle = function () {
 		var self = this;
 
-		$.post('/api/tasks/' + this.id + '/toggle')
+		return $.post('/api/tasks/' + this.id + '/toggle')
 			.then(function(data) {
 				self = new App.Task(data);
 				return self;

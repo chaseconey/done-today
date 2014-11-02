@@ -11,11 +11,6 @@
 	<ul id="currentTasks"></ul>
 </section>
 
-<section id="completedTasksContainer">
-	<h2>Completed Tasks</h2>
-	<ul id="completedTasks"></ul>
-</section>
-
 <script id="tasks-template" type="text/x-handlebars-template">
 	@{{#each this}}
 		<li data-id="@{{ id }}">

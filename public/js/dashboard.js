@@ -5,10 +5,7 @@
 		currentTasksDiv = '#currentTasks',
 		$currentTasks = $(currentTasksDiv),
 
-		// Tasks Completed Today
-		completedTasksList = new App.TasksList,
-		completedTasksDiv = '#completedTasks',
-		$completedTasks = $(completedTasksDiv),
+		// Loading node
 		loadingDiv = $('<div/>', {
 			class: 'loader',
 			text: 'Loading'
@@ -20,14 +17,16 @@
 
 	// Load data
 	loadCurrentTasks();
-	loadCompletedTasks();
 
 	// Register click events
 	$('#container').on('click', 'input[type=checkbox]', function(e) {
-		var task_id = $(this).parent('li').data('id'),
+		var li = $(this).parent('li'),
+			task_id = li.data('id'),
 			task = _.findWhere(tasksList, {id:task_id});
 
-		task.toggle();
+		task.toggle().done(function() {
+			li.remove();
+		});
 	});
 
 	$('.quick-create-btn').on('click', function() {
@@ -61,17 +60,6 @@
 			});
 
 			updateTemplate(taskTemplate, tasksList, currentTasksDiv);
-		});
-	}
-
-	function loadCompletedTasks() {
-		$completedTasks.html(loadingDiv);
-		$.getJSON('api/tasks', {done: 1, start_date: '2014-01-01'}).done(function(tasks) {
-			tasks.map(function(task) {
-				completedTasksList.push(new App.Task(task));
-			});
-
-			updateTemplate(taskTemplate, completedTasksList, completedTasksDiv);
 		});
 	}
 
