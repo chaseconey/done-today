@@ -23,3 +23,15 @@ Route::group(['namespace' => 'api',  'prefix' => 'api'], function() {
 
 	Route::resource('tasks', 'TasksController');
 });
+
+Route::get('test', function() {
+	$times = 1000;
+	while($times > 0) {
+		Task::create([
+			'name' => "Task #{$times}",
+			'estimation' => $times,
+			'done' => ($times % 2 == 0)
+		]);
+		$times--;
+	}
+});

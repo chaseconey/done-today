@@ -14,14 +14,16 @@
     "test",
     "tests"
   ],
-	"dependencies": {
-		"jquery": "~2.1.1",
-		"foundation": "~5.4.6"
-	},
-	"install": {
-		"path": {
-			"css": "public/lib/css",
-			"js": "public/lib/js"
-		}
-	}
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "foundation": "~5.4.6",
+    "handlebars": "~2.0.0",
+    "underscore": "~1.7.0"
+  },
+  "install": {
+    "path": {
+      "css": "public/lib/css",
+      "js": "public/lib/js"
+    }
+  }
 }

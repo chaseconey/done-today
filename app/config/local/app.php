@@ -17,7 +17,8 @@ return array(
 
 	'providers' => append_config(array(
 		'Way\Generators\GeneratorsServiceProvider',
-		'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider'
+		'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
+		'Clockwork\Support\Laravel\ClockworkServiceProvider'
 	))
 
 );
