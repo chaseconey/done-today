@@ -68,6 +68,7 @@ class TasksController extends \BaseController {
 	public function edit($id) {
 		$task = Task::findOrFail($id);
 		$resolutions = Resolution::lists('name', 'id');
+		$resolutions[null] = '';
 
 		return View::make('tasks.edit')
 			->with('task', $task)

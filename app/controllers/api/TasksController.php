@@ -44,13 +44,13 @@ class TasksController extends \BaseController {
 			return Response::json(['errors' => $validator->errors()], 422);
 		}
 
-		return Task::create($data);
+		return $this->task->create($data);
 
 	}
 
 	public function toggle($id) {
 
-		$task = Task::findOrFail($id);
+		$task = $this->task->findOrFail($id);
 		$task->done = ($task->done == 0) ? 1 : 0;
 		$task->save();
 

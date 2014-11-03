@@ -4,30 +4,14 @@
 @section('content')
 <h1>Dashboard</h1>
 
-@include('tasks.partials.quick_create')
-
-<section id="currentTasksContainer">
-	<h2>Current Tasks</h2>
-	<ul id="currentTasks"></ul>
+<section>
+	<h3>Tasks Completed Today [{{ count($tasksToday) }}]</h3>
+	@include('tasks.partials.task', ['tasks' => $tasksToday])
 </section>
 
-<script id="tasks-template" type="text/x-handlebars-template">
-	@{{#each this}}
-		<li data-id="@{{ id }}">
+<section>
+	<h3>Tasks Completed Yesterday [{{ count($tasksYesterday) }}]</h3>
+	@include('tasks.partials.task', ['tasks' => $tasksYesterday])
+</section>
 
-			<input type="checkbox" />
-
-			@{{#if resolution_id }}
-			<small>[@{{ resolution_id }}]</small>
-			@{{/if}}
-
-			@{{name}}
-		</li>
-	@{{/each}}
-</script>
-
-@stop
-
-@section('scripts')
-<script src="/js/dashboard.js"></script>
 @stop

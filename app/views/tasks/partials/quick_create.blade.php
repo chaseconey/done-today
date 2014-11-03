@@ -1,12 +1,15 @@
 
 <div class="quick-create">
-	@include('layouts.partials.errors', ['errors' => $errors])
 
-	{{ Form::label('name') }}
-	{{ Form::text('name') }}
+	{{ Form::open() }}
 
-	{{ Form::label('estimation') }}
-	{{ Form::text('estimation') }}
+		{{ Form::label('name') }}
+		{{ Form::text('name') }}
 
-	{{ Form::submit('Add', ['class' => 'quick-create-btn']) }}
+		{{ Form::label('estimation') }}
+		{{ Form::text('estimation') }}
+
+		{{ Form::submit('Add', ['class' => 'quick-create-btn']) }}
+
+	{{ Form::close() }}
 </div>

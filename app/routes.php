@@ -22,10 +22,11 @@ Route::group(['namespace' => 'api',  'prefix' => 'api'], function() {
 	Route::post('tasks/{task_id}/toggle', 'TasksController@toggle');
 
 	Route::resource('tasks', 'TasksController');
+	Route::resource('resolutions', 'ResolutionsController');
 });
 
 Route::get('test', function() {
-	$times = 1000;
+	$times = 20000;
 	while($times > 0) {
 		Task::create([
 			'name' => "Task #{$times}",

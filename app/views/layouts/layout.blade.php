@@ -18,6 +18,7 @@
 <script src="/lib/js/underscore/underscore.js"></script>
 <script src="/lib/js/handlebars/handlebars.js"></script>
 <script src="/lib/js/momentjs/moment.js"></script>
+<script src="/js/helpers/handlebars-date.js"></script>
 <script src="/js/app.js"></script>
 <script src="/js/models/Tasks.js"></script>
 <script src="/js/models/Task.js"></script>

@@ -5,6 +5,8 @@
 		currentTasksDiv = '#currentTasks',
 		$currentTasks = $(currentTasksDiv),
 
+		resolutions = [],
+
 		// Loading node
 		loadingDiv = $('<div/>', {
 			class: 'loader',
@@ -16,6 +18,7 @@
 	var taskTemplate = Handlebars.compile(source);
 
 	// Load data
+	loadResolutions();
 	loadCurrentTasks();
 
 	// Register click events
@@ -25,19 +28,19 @@
 
 		var task = tasksList.remove(task_id);
 
-		console.log(task);
-
 		task.toggle().done(function() {
 			li.remove();
 		});
 	});
 
-	$('.quick-create-btn').on('click', function() {
-		var form = $(this).parent('.quick-create'),
-			name = form.find('input[name="name"]'),
-			estimation = form.find('input[name="estimation"]');
+	$('.quick-create').on('submit', function(e) {
 
-		var task = new App.Task({name: name.val(), estimation: estimation.val()});
+		var form = $(this),
+			name = form.find('input[name="name"]'),
+			estimation = form.find('input[name="estimation"]'),
+			task = new App.Task({name: name.val(), estimation: estimation.val()});
+
+		e.preventDefault();
 
 		task.create().done(function(task) {
 			name.val('');
@@ -63,6 +66,14 @@
 			});
 
 			updateTemplate(taskTemplate, tasksList, currentTasksDiv);
+		});
+	}
+
+	function loadResolutions() {
+		return $.getJSON('api/resolutions').done(function(data) {
+			_.each(data, function(element, index, list) {
+				resolutions[index] = element.name;
+			});
 		});
 	}
 

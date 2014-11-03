@@ -24,7 +24,11 @@
   "install": {
     "path": {
       "css": "public/lib/css",
-      "js": "public/lib/js"
+      "js": "public/lib/js",
+	    "eot": "public/lib/fonts",
+	    "svg": "public/lib/fonts",
+	    "ttf": "public/lib/fonts",
+	    "woff": "public/lib/fonts"
     }
   }
 }
