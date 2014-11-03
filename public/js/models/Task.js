@@ -15,7 +15,7 @@
 
 		return $.ajax({
 			type: 'POST',
-			url: '/api/tasks/',
+			url: '/api/tasks',
 			dataType: 'json',
 			data: {
 				'name': self.name,
