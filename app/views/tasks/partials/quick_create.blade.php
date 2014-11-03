@@ -1,15 +1,19 @@
 
 <div class="quick-create">
 
-	{{ Form::open() }}
+	{{ Form::open(['class' => 'form-inline']) }}
 
-		{{ Form::label('name') }}
-		{{ Form::text('name') }}
+		<div class="form-group">
+			{{ Form::label('name') }}
+			{{ Form::text('name', null, ['class' => 'form-control']) }}
+		</div>
 
-		{{ Form::label('estimation') }}
-		{{ Form::text('estimation') }}
+		<div class="form-group">
+			{{ Form::label('estimation') }}
+			{{ Form::text('estimation', null, ['class' => 'form-control']) }}
+		</div>
 
-		{{ Form::submit('Add', ['class' => 'quick-create-btn']) }}
+		{{ Form::submit('Add', ['class' => 'quick-create-btn btn btn-primary']) }}
 
 	{{ Form::close() }}
 </div>
