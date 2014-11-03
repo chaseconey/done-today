@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Done Today</title>
+<link rel="stylesheet" href="/lib/css/bootstrap/bootstrap.css"/>
 <link rel="stylesheet" href="/css/style.css"/>
 <link rel="stylesheet" href="/css/loader.css"/>
 </head>
@@ -10,11 +11,12 @@
 
 	@include('layouts.partials.nav')
 
-	<div id="container">
+	<div id="container-fluid">
 		@yield('content')
 	</div>
 
 <script src="/lib/js/jquery/jquery.js"></script>
+<script src="/lib/js/bootstrap/bootstrap.js"></script>
 <script src="/lib/js/underscore/underscore.js"></script>
 <script src="/lib/js/handlebars/handlebars.js"></script>
 <script src="/lib/js/momentjs/moment.js"></script>

@@ -16,19 +16,20 @@
   ],
   "dependencies": {
     "jquery": "~2.1.1",
-    "foundation": "~5.4.6",
     "handlebars": "~2.0.0",
     "underscore": "~1.7.0",
-    "momentjs": "~2.8.3"
+    "momentjs": "~2.8.3",
+    "bootstrap": "~3.3.0"
   },
   "install": {
     "path": {
       "css": "public/lib/css",
       "js": "public/lib/js",
-	    "eot": "public/lib/fonts",
-	    "svg": "public/lib/fonts",
-	    "ttf": "public/lib/fonts",
-	    "woff": "public/lib/fonts"
+      "less": "public/lib/less",
+      "eot": "public/lib/fonts",
+      "svg": "public/lib/fonts",
+      "ttf": "public/lib/fonts",
+      "woff": "public/lib/fonts"
     }
   }
 }
