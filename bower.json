@@ -25,6 +25,7 @@
   "install": {
     "path": {
       "css": "public/lib/css",
+      "map": "public/lib/css",
       "js": "public/lib/js",
       "less": "public/lib/less",
       "eot": "public/lib/fonts",

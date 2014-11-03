@@ -6,9 +6,9 @@
 
 @include('tasks.partials.quick_create')
 
-<section id="currentTasksContainer">
+<section id="tasksContainer">
 	<h2>Current Tasks</h2>
-	<ul id="currentTasks"></ul>
+	<ul id="tasks"></ul>
 </section>
 
 <script id="tasks-template" type="text/x-handlebars-template">

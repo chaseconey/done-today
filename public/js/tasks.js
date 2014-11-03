@@ -2,7 +2,7 @@
 
 	// Current Tasks
 	var tasksList = new App.TasksList,
-		currentTasksDiv = '#currentTasks',
+		currentTasksDiv = '#tasks',
 		$currentTasks = $(currentTasksDiv),
 
 		resolutions = [],
@@ -22,7 +22,7 @@
 	loadCurrentTasks();
 
 	// Register click events
-	$('#container').on('click', 'input[type=checkbox]', function(e) {
+	$('#tasks').on('click', 'input[type=checkbox]', function(e) {
 		var li = $(this).parent('li'),
 			task_id = li.data('id');
 
