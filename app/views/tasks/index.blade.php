@@ -27,5 +27,5 @@
 @stop
 
 @section('scripts')
-<script src="/js/dashboard.js"></script>
+<script src="/js/tasks.js"></script>
 @stop

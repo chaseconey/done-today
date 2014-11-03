@@ -2,7 +2,8 @@
 
 namespace api;
 
-use Resolution, Input, Response, Validator;
+use Carbon\Carbon;
+use Resolution, DB, Response;
 
 class ResolutionsController extends \BaseController {
 

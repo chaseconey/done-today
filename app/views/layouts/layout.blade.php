@@ -11,12 +11,13 @@
 
 	@include('layouts.partials.nav')
 
-	<div id="container-fluid">
+	<div class="container-fluid">
 		@yield('content')
 	</div>
 
 <script src="/lib/js/jquery/jquery.js"></script>
 <script src="/lib/js/bootstrap/bootstrap.js"></script>
+<script src="/lib/js/chartjs/Chart.min.js"></script>
 <script src="/lib/js/underscore/underscore.js"></script>
 <script src="/lib/js/handlebars/handlebars.js"></script>
 <script src="/lib/js/momentjs/moment.js"></script>

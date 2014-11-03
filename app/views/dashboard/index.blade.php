@@ -2,16 +2,38 @@
 @extends('layouts.layout')
 
 @section('content')
-<h1>Dashboard</h1>
 
-<section>
-	<h3>Tasks Completed Today [{{ count($tasksToday) }}]</h3>
-	@include('tasks.partials.task', ['tasks' => $tasksToday])
-</section>
 
-<section>
-	<h3>Tasks Completed Yesterday [{{ count($tasksYesterday) }}]</h3>
-	@include('tasks.partials.task', ['tasks' => $tasksYesterday])
-</section>
+<div class="row">
 
+	<div class="col-md-6">
+		@include('tasks.partials.task-panel', ['tasks' => $tasksToday, 'title' => 'Completed Today'])
+	</div>
+
+	<div class="col-md-6">
+		@include('tasks.partials.task-panel', ['tasks' => $tasksYesterday, 'title' => 'Completed Yesterday'])
+	</div>
+
+</div>
+
+<div class="row">
+	<div class="col-md-6">
+		@include('dashboard.partials.chart-panel', [
+			'title' => 'Tasks per Month',
+			'canvas_id' => 'tasks-month'
+		])
+	</div>
+
+	<div class="col-md-6">
+		@include('dashboard.partials.chart-panel', [
+			'title' => 'Resolution Breakdown',
+			'canvas_id' => 'tasks-resolution'
+		])
+	</div>
+</div>
+
+@stop
+
+@section('scripts')
+<script src="/js/dashboard.js"></script>
 @stop

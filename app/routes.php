@@ -20,6 +20,8 @@ Route::resource('tasks', 'TasksController');
 Route::group(['namespace' => 'api',  'prefix' => 'api'], function() {
 
 	Route::post('tasks/{task_id}/toggle', 'TasksController@toggle');
+	Route::get('resolutions/report', 'ResolutionsController@report');
+	Route::get('tasks/report', 'TasksController@report');
 
 	Route::resource('tasks', 'TasksController');
 	Route::resource('resolutions', 'ResolutionsController');

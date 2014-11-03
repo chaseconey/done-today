@@ -9,10 +9,17 @@ class TasksTableSeeder extends Seeder {
 	{
 		$faker = Faker::create();
 
-		foreach(range(1, 10) as $index)
+		Task::unguard();
+		foreach(range(1, 1500) as $index)
 		{
-			Task::create([
 
+			Task::create([
+				'name' => $faker->name,
+				'done' => $faker->boolean(),
+				'estimation' => $faker->randomFloat(5, 0, 10),
+				'resolution_id' => $faker->numberBetween(0, 3),
+				'created_at' => $faker->dateTimeThisYear,
+				'updated_at' => $faker->dateTimeThisYear
 			]);
 		}
 	}

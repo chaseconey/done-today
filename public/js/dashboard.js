@@ -1,80 +1,58 @@
-(function ($, _) {
+(function () {
 
-	// Current Tasks
-	var tasksList = new App.TasksList,
-		currentTasksDiv = '#currentTasks',
-		$currentTasks = $(currentTasksDiv),
+	var labels = [],
+		chartData = [];
 
-		resolutions = [],
+	// Tasks by Month Chart
+	$.getJSON('api/tasks/report').done(function(data) {
+		points = _.pluck(data, 'cnt');
 
-		// Loading node
-		loadingDiv = $('<div/>', {
-			class: 'loader',
-			text: 'Loading'
-		});
+		chartData = constructSimpleData(points, 'Resolution Breakdown');
 
-	// Compile templates
-	var source = $("#tasks-template").html();
-	var taskTemplate = Handlebars.compile(source);
-
-	// Load data
-	loadResolutions();
-	loadCurrentTasks();
-
-	// Register click events
-	$('#container').on('click', 'input[type=checkbox]', function(e) {
-		var li = $(this).parent('li'),
-			task_id = li.data('id');
-
-		var task = tasksList.remove(task_id);
-
-		task.toggle().done(function() {
-			li.remove();
-		});
+		// Get context with jQuery - using jQuery's .get() method.
+		var ctx = $('#tasks-month').get(0).getContext("2d");
+		// This will get the first returned node in the jQuery collection.
+		var myBarChart = new Chart(ctx).Bar(chartData);
 	});
 
-	$('.quick-create').on('submit', function(e) {
+	// Tasks by Resolution Chart
+	$.getJSON('api/tasks/report', {type: 'per-resolution'}).done(function(data) {
+		chartData = constructSimplePieData(data);
 
-		var form = $(this),
-			name = form.find('input[name="name"]'),
-			estimation = form.find('input[name="estimation"]'),
-			task = new App.Task({name: name.val(), estimation: estimation.val()});
-
-		e.preventDefault();
-
-		task.create().done(function(task) {
-			name.val('');
-			estimation.val('');
-
-			tasksList.push(task);
-			updateTemplate(taskTemplate, tasksList, '#currentTasks');
-		})
-
+		// Get context with jQuery - using jQuery's .get() method.
+		var ctx = $('#tasks-resolution').get(0).getContext("2d");
+		// This will get the first returned node in the jQuery collection.
+		var myBarChart = new Chart(ctx).Doughnut(chartData);
 	});
 
-	function updateTemplate(template, data, target) {
-		var html = template(data);
-
-		$(target).html(html);
+	function constructSimpleData(points, label, chartDiv) {
+		return {
+			labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+			datasets: [
+				{
+					label: label,
+					fillColor: "rgba(220,220,220,0.5)",
+					strokeColor: "rgba(220,220,220,0.8)",
+					highlightFill: "rgba(220,220,220,0.75)",
+					highlightStroke: "rgba(220,220,220,1)",
+					data: points
+				}
+			]
+		};
 	}
 
-	function loadCurrentTasks() {
-		$currentTasks.html(loadingDiv);
-		$.getJSON('api/tasks', {done: 0}).done(function(tasks) {
-			tasks.map(function(task) {
-				tasksList.push(new App.Task(task));
+	function constructSimplePieData(data) {
+		var pie = [];
+		_.each(data, function(element, index, list) {
+			pie.push({
+				value: element.cnt,
+				color: '#'+Math.floor(Math.random()*16777215).toString(16),
+				highlight: '#'+Math.floor(Math.random()*16777215).toString(16),
+				label: element.resolution_id
 			});
-
-			updateTemplate(taskTemplate, tasksList, currentTasksDiv);
 		});
+
+		return pie;
 	}
 
-	function loadResolutions() {
-		return $.getJSON('api/resolutions').done(function(data) {
-			_.each(data, function(element, index, list) {
-				resolutions[index] = element.name;
-			});
-		});
-	}
-
-})(jQuery, _);
+})();
