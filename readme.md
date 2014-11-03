@@ -5,6 +5,7 @@ Simple app that tracks what you have done every day. Used primarily for supporti
 ### To Do / Wishlist
 - [x] Implement some themeing
 - [x] Ajaxify everything
+- [ ] Add comments to a task
 - [ ] Add notifications
 - [ ] Add colors to Resolutions
 - [x] Allow entering of several tasks at once
