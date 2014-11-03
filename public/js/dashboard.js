@@ -21,8 +21,11 @@
 	// Register click events
 	$('#container').on('click', 'input[type=checkbox]', function(e) {
 		var li = $(this).parent('li'),
-			task_id = li.data('id'),
-			task = _.findWhere(tasksList, {id:task_id});
+			task_id = li.data('id');
+
+		var task = tasksList.remove(task_id);
+
+		console.log(task);
 
 		task.toggle().done(function() {
 			li.remove();
