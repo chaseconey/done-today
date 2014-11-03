@@ -40,6 +40,9 @@
 			estimation = form.find('input[name="estimation"]'),
 			task = new App.Task({name: name.val(), estimation: estimation.val()});
 
+
+		console.log(name.val(), estimation.val(), task);
+
 		e.preventDefault();
 
 		task.create().done(function(task) {
@@ -47,7 +50,7 @@
 			estimation.val('');
 
 			tasksList.push(task);
-			updateTemplate(taskTemplate, tasksList, '#currentTasks');
+			updateTemplate(taskTemplate, tasksList, currentTasksDiv);
 		})
 
 	});
