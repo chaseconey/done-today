@@ -2,14 +2,17 @@
 @extends('layouts.layout')
 
 @section('content')
-<h1>Tasks</h1>
 
-@include('tasks.partials.quick_create')
+<div id="tasksContainer" class="row">
+	<div class="col-md-8 col-md-offset-2">
+		<div class="text-center">
+			@include('tasks.partials.quick_create')
+		</div>
 
-<section id="tasksContainer">
-	<h2>Current Tasks</h2>
-	<ul id="tasks"></ul>
-</section>
+		<h2>Current Tasks</h2>
+		<ul id="tasks" class="list-unstyled"></ul>
+	</div>
+</div>
 
 <script id="tasks-template" type="text/x-handlebars-template">
 	@{{#each this}}

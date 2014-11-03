@@ -3,9 +3,9 @@
 
 @section('content')
 
-<a href="{{ URL::route('resolutions.create') }}">Create</a>
+<a href="{{ URL::route('resolutions.create') }}" class="btn btn-primary">Create</a>
 
-<table>
+<table class="table table-hover table-condensed">
 	<thead>
 		<tr>
 			<th>#</th>
@@ -24,7 +24,7 @@
 			<td>{{ $res->updated_at }}</td>
 			<td>
 				{{ Form::open(['route' => ['resolutions.destroy', $res->id], 'method' => 'delete']) }}
-					{{ Form::submit('Delete') }}
+					{{ Form::submit('Delete', ['class' => 'btn btn-sm btn-danger']) }}
 				{{ Form::close() }}
 			</td>
 		</tr>

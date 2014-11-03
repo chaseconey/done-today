@@ -3,15 +3,20 @@
 
 @section('content')
 
-@include('layouts.partials.errors', ['errors' => $errors])
+<div class="row">
+<div class="col-md-4">
+	@include('layouts.partials.errors', ['errors' => $errors])
 
-{{ Form::open(['route' => 'resolutions.store']) }}
+	{{ Form::open(['route' => 'resolutions.store']) }}
 
-	{{ Form::label('name') }}
-	{{ Form::text('name') }}
+		<div class="form-group">
+			{{ Form::label('name') }}
+			{{ Form::text('name', null, ['class' => 'form-control']) }}
+		</div>
 
-	{{ Form::submit('Add') }}
+		{{ Form::submit('Add', ['class' => 'quick-create-btn btn btn-primary']) }}
 
-{{ Form::close() }}
-
+	{{ Form::close() }}
+</div>
+</div>
 @stop
