@@ -3,7 +3,9 @@
 
 	// Initialize datatables
 	$('.data-table').dataTable({
-		stateSave: true
+		stateSave: true,
+		"lengthChange": false,
+		"searching": false
 	});
 
 })(window, $);

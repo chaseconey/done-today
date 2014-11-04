@@ -42,7 +42,7 @@
 			{{ Form::select('resolution_id', $resolutions, $task->resolution_id, ['class' => 'form-control']) }}
 		</div>
 
-		{{ Form::submit('Update') }}
+		{{ Form::submit('Update', ['class' => 'btn btn-primary']) }}
 
 	{{ Form::close() }}
 	</div>
