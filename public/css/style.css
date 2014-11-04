@@ -1,9 +1,0 @@
-body { padding-top: 70px; }
-
-ul#tasks {
-	font-size: 1.5em;
-}
-
-.task-completed {
-	text-decoration: line-through;
-}

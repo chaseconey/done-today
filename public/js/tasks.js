@@ -33,7 +33,8 @@
 		});
 	});
 
-	$('.quick-create').on('submit', function(e) {
+	// Tasks Quick Create
+	$('#tasks-quick-create').on('submit', function(e) {
 
 		var form = $(this),
 			name = form.find('input[name="name"]'),

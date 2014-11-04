@@ -5,8 +5,7 @@
 <title>Done Today</title>
 <link rel="stylesheet" href="/css/bootstrap-override.css"/>
 <link rel="stylesheet" href="http://cdn.datatables.net/plug-ins/380cb78f450/integration/bootstrap/3/dataTables.bootstrap.css"/>
-<link rel="stylesheet" href="/css/style.css"/>
-<link rel="stylesheet" href="/css/loader.css"/>
+<link rel="stylesheet" href="/dist/css/main.css"/>
 </head>
 <body>
 

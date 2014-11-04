@@ -6,11 +6,11 @@
 
 <div class="row">
 
-	<div class="col-md-6">
+	<div id="today-panel" class="col-md-6">
 		@include('tasks.partials.task-panel', ['tasks' => $tasksToday, 'title' => 'Completed Today'])
 	</div>
 
-	<div class="col-md-6">
+	<div id="yesterday-panel" class="col-md-6">
 		@include('tasks.partials.task-panel', ['tasks' => $tasksYesterday, 'title' => 'Completed Yesterday'])
 	</div>
 

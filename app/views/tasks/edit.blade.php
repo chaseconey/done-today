@@ -45,6 +45,13 @@
 		{{ Form::submit('Update', ['class' => 'btn btn-primary']) }}
 
 	{{ Form::close() }}
+
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		@include('tasks.comments.index', ['comments' => $task->comments])
 	</div>
 </div>
 

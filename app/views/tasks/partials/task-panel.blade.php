@@ -25,7 +25,12 @@
 							</span>
 						@endif
 					</td>
-					<td><span class="glyphicon glyphicon-comment"></span> 1</td>
+					<td class="comments">
+						<a href="{{ URL::route('tasks.edit', $task->id) }}#comments">
+							<span class="glyphicon glyphicon-comment"></span>
+							{{ count($task->comments) }}
+						</a>
+					</td>
 				</tr>
 			@endforeach
 		</tbody>

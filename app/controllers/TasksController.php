@@ -66,7 +66,7 @@ class TasksController extends \BaseController {
 	 * @return Response
 	 */
 	public function edit($id) {
-		$task = Task::findOrFail($id);
+		$task = Task::with('comments')->findOrFail($id);
 		$resolutions = Resolution::lists('name', 'id');
 		$resolutions[null] = '';
 

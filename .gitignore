@@ -9,3 +9,4 @@ Thumbs.db
 .idea
 public/bower_components
 public/lib
+node_modules

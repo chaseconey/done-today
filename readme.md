@@ -8,6 +8,7 @@ Simple app that tracks what you have done every day. Used primarily for supporti
 - [ ] Add comments to a task
 - [x] Make dashboard panels data tables
 - [ ] Add notifications
+- [ ] Add gravatar functionality
 - [ ] Integrate build tool
 - [ ] Add colors to Resolutions
 - [x] Allow entering of several tasks at once

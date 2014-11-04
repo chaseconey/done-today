@@ -16,6 +16,10 @@ class Task extends \Eloquent {
 		return $this->belongsTo('Resolution');
 	}
 
+	public function comments() {
+		return $this->hasMany('Comment');
+	}
+
 	public function scopeDone($query) {
 		return $query->where('done', true);
 	}

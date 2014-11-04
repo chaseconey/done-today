@@ -7,10 +7,12 @@ class DashboardController extends BaseController {
 		$yesterday = new DateTime('yesterday');
 
 		$tasksToday = Task::where('updated_at', '>=', $today)
+			->with('comments', 'resolution')
 			->done()
 			->get();
 
 		$tasksYesterday = Task::whereBetween('updated_at', [$yesterday, $today])
+			->with('comments', 'resolution')
 			->done()
 			->get();
 

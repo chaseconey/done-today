@@ -1,5 +1,5 @@
 
-<div class="quick-create">
+<div id="tasks-quick-create" class="quick-create">
 
 	{{ Form::open(['route' => 'tasks.store', 'class' => 'form-inline']) }}
 

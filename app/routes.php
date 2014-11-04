@@ -14,7 +14,9 @@
 Route::get('/', 'DashboardController@index');
 
 Route::resource('resolutions', 'ResolutionsController');
+
 Route::resource('tasks', 'TasksController');
+Route::resource('tasks.comments', 'tasks\CommentsController');
 
 // API
 Route::group(['namespace' => 'api',  'prefix' => 'api'], function() {
