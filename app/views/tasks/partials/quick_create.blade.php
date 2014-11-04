@@ -1,11 +1,11 @@
 
 <div class="quick-create">
 
-	{{ Form::open(['class' => 'form-inline']) }}
+	{{ Form::open(['route' => 'tasks.store', 'class' => 'form-inline']) }}
 
 		<div class="form-group">
 			{{ Form::label('name') }}
-			{{ Form::text('name', null, ['class' => 'form-control']) }}
+			{{ Form::text('name', null, ['class' => 'form-control', 'autofocus' => 'autofocus']) }}
 		</div>
 
 		<div class="form-group">

@@ -3,7 +3,7 @@
 
 @section('content')
 
-<a href="{{ URL::route('resolutions.create') }}" class="btn btn-primary">Create</a>
+@include('resolutions.partials.quick-create')
 
 <table class="table table-hover table-condensed">
 	<thead>
