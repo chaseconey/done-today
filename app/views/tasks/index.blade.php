@@ -9,7 +9,7 @@
 			@include('tasks.partials.quick_create')
 		</div>
 
-		<h2>Current Tasks</h2>
+		<h2>{{ count($tasks) }} Tasks</h2>
 		<ul id="tasks" class="list-unstyled"></ul>
 	</div>
 </div>
