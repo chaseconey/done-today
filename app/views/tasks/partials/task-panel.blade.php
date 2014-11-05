@@ -7,6 +7,7 @@
 			<tr>
 				<th>#</th>
 				<th>Task</th>
+				<th>Time</th>
 				<th>Resolution</th>
 				<th>Comments</th>
 			</tr>
@@ -18,6 +19,7 @@
 					<td>
 						{{ HTML::linkRoute('tasks.show', $task->name, [$task->id]) }}
 					</td>
+					<td>{{ $task->estimation }}</td>
 					<td>
 						@if(isset($task->resolution->name))
 							<span class="label label-success">
