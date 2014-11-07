@@ -45,7 +45,7 @@
 		var pie = [];
 		_.each(data, function(element, index, list) {
 			pie.push({
-				value: element.cnt,
+				value: parseInt(element.cnt),
 				color: '#'+Math.floor(Math.random()*16777215).toString(16),
 				highlight: '#'+Math.floor(Math.random()*16777215).toString(16),
 				label: element.resolution_id
