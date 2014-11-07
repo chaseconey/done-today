@@ -83,7 +83,7 @@ class TasksController extends \BaseController {
 
 		$tasks = $this->task
 			->select(DB::raw('MONTH(updated_at) as month, count(1) as cnt'))
-			->where('updated_at', '>=', $now->firstOfYear())
+			->where('completed_at', '>=', $now->firstOfYear())
 			->done()
 			->groupBy(DB::raw('MONTH(updated_at)'))
 			->orderBy(DB::raw('MONTH(updated_at)'))
@@ -99,7 +99,7 @@ class TasksController extends \BaseController {
 			->with('resolution')
 			->select(DB::raw('resolution_id, count(1) as cnt'))
 			->done()
-			->where('updated_at', '>=', $now->firstOfYear())
+			->where('completed_at', '>=', $now->firstOfYear())
 			->groupBy('resolution_id')
 			->get();
 

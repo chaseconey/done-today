@@ -94,6 +94,11 @@ class TasksController extends \BaseController {
 				->withInput();
 		}
 
+		// If no date completed set, use today as completed date
+		if ($data['done'] === '1' && $data['completed_at'] === '') {
+			$data['completed_at'] = \Carbon\Carbon::now()->format('Y-m-d');
+		}
+
 		$task->update($data);
 
 		return Redirect::route('tasks.index');

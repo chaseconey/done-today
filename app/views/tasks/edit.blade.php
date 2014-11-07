@@ -1,12 +1,13 @@
 
 @extends('layouts.layout')
 
-@include('layouts.partials.errors', ['errors' => $errors])
-
 @section('content')
 
 <div class="row">
 	<div class="col-md-6 col-md-offset-3">
+
+	@include('layouts.partials.errors', ['errors' => $errors])
+
 	{{ Form::open(['route' => ['tasks.update', $task->id], 'method' => 'put', 'role' => 'form']) }}
 
 		<div class="row">
@@ -25,6 +26,15 @@
 				{{ Form::text('name', $task->name, ['class' => 'form-control']) }}
 			</div>
 		</div>
+		</div>
+
+		<div class="form-group">
+			{{ Form::label('completed_at') }}
+			{{ Form::input('date',
+				'completed_at',
+				isset($task->completed_at) ? $task->completed_at->format('Y-m-d') : null,
+				['class' => 'form-control']
+			)}}
 		</div>
 
 		<div class="form-group">

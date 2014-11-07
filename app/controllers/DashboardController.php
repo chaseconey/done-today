@@ -1,17 +1,19 @@
 <?php
 
+use Carbon\Carbon;
+
 class DashboardController extends BaseController {
 
 	public function index() {
-		$today = new DateTime('today');
-		$yesterday = new DateTime('yesterday');
+		$today = new Carbon('today');
+		$yesterday = new Carbon('yesterday');
 
-		$tasksToday = Task::where('updated_at', '>=', $today)
+		$tasksToday = Task::where('completed_at', '>=', $today)
 			->with('comments', 'resolution')
 			->done()
 			->get();
 
-		$tasksYesterday = Task::whereBetween('updated_at', [$yesterday, $today])
+		$tasksYesterday = Task::whereBetween('completed_at', [$yesterday->toDateTimeString(), $yesterday->endOfDay()])
 			->with('comments', 'resolution')
 			->done()
 			->get();

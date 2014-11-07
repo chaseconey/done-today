@@ -10,7 +10,11 @@ class Task extends \Eloquent {
 	];
 
 	// Don't forget to fill this array
-	protected $fillable = ['name', 'description', 'estimation', 'resolution_id', 'done'];
+	protected $fillable = ['name', 'description', 'estimation', 'resolution_id', 'done', 'completed_at'];
+
+	public function getDates() {
+		return ['completed_at', 'updated_at', 'created_at'];
+	}
 
 	public function resolution() {
 		return $this->belongsTo('Resolution');
