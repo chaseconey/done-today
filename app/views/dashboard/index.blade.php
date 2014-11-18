@@ -4,7 +4,7 @@
 @section('content')
 
 
-<div class="row">
+<div class="row" id="dashboard">
 
 	<div id="today-panel" class="col-md-6">
 		@include('tasks.partials.task-panel', ['tasks' => $tasksToday, 'title' => 'Completed Today'])

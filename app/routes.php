@@ -15,6 +15,8 @@ Route::get('/', 'DashboardController@index');
 
 Route::resource('resolutions', 'ResolutionsController');
 
+Route::resource('reporting', 'ReportingController', ['only' => 'index']);
+
 Route::resource('tasks', 'TasksController');
 Route::resource('tasks.comments', 'tasks\CommentsController');
 
@@ -30,7 +32,7 @@ Route::group(['namespace' => 'api',  'prefix' => 'api'], function() {
 });
 
 Route::get('test', function() {
-	$times = 20000;
+	$times = 2000;
 	while($times > 0) {
 		Task::create([
 			'name' => "Task #{$times}",
