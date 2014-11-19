@@ -66,7 +66,7 @@
 					<td>{{{ $task->name }}}</td>
 					<td>{{ $task->estimation }}</td>
 					<td>{{ $task->completed_at->format('Y-m-d') }} ({{ $task->completed_at->diffForHumans() }})</td>
-					<td>{{ $task->resolution->name }}</td>
+					<td>{{ isset($task->resolution->name) ? $task->resolution->name : '' }}</td>
 					<td>{{ count($task->comments) }}</td>
 				</tr>
 
