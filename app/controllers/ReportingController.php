@@ -1,5 +1,7 @@
 <?php
 
+use Carbon\Carbon;
+
 class ReportingController extends \BaseController {
 
 	/**
@@ -32,7 +34,8 @@ class ReportingController extends \BaseController {
 
 	private function filter($query) {
 		$done = Input::get('done');
-		$date = Input::get('date');
+		$startDate = Input::get('date');
+		$period = Input::get('period');
 
 		if (!is_null($done)) {
 			$query = $query->done();
@@ -40,8 +43,14 @@ class ReportingController extends \BaseController {
 			$query = $query->notDone();
 		}
 
-		if (!is_null($date)) {
-			$query = $query->where('completed_at', '=', $date);
+		if (!is_null($startDate)) {
+			if ($period) {
+				$startDate = new Carbon($startDate);
+				$endDate = $startDate->copy()->addDays($period - 1)->endOfDay();
+				$query = $query->whereBetween('completed_at', [$startDate, $endDate]);
+			} else {
+				$query = $query->where('completed_at', '=', $startDate);
+			}
 		}
 
 		return $query;

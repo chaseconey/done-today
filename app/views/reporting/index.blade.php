@@ -30,6 +30,12 @@
 					    {{ Form::input('date', 'date', Input::get('date'), ['class' => 'form-control']) }}
 					</div>
 
+					<!--- Period Field --->
+					<div class="form-group col-md-3">
+						{{ Form::label('period', 'Period:') }}
+						{{ Form::select('period', [1 => '1 day', 7 => '1 week', 30 => '1 month', 365 => '1 year'], Input::get('period', 1), ['class' => 'form-control']) }}
+					</div>
+
 				</div>
 
 				<!--- Filter Field --->
