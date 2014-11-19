@@ -63,7 +63,7 @@
 
 				<tr>
 					<td>{{ $task->id }}</td>
-					<td>{{{ $task->name }}}</td>
+					<td>{{ HTML::linkRoute('tasks.edit', $task->name, [$task->id]) }}</td>
 					<td>{{ $task->estimation }}</td>
 					<td>{{ $task->completed_at->format('Y-m-d') }} ({{ $task->completed_at->diffForHumans() }})</td>
 					<td>{{ isset($task->resolution->name) ? $task->resolution->name : '' }}</td>
