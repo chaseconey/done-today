@@ -3,6 +3,13 @@
 	var labels = [],
 		chartData = [];
 
+	// Initialize data tables
+	$('#dashboard .data-table').dataTable({
+		"stateSave": true,
+		"lengthChange": false,
+		"searching": false
+	});
+
 	// Tasks by Month Chart
 	$.getJSON('api/tasks/report').done(function(data) {
 		points = _.pluck(data, 'cnt');

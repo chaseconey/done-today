@@ -12,7 +12,7 @@ class ResolutionsTableSeeder extends Seeder {
 		foreach(range(1, 10) as $index)
 		{
 			Resolution::create([
-
+				'name' => $faker->name
 			]);
 		}
 	}

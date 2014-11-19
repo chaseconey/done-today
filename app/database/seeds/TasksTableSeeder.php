@@ -17,7 +17,8 @@ class TasksTableSeeder extends Seeder {
 				'name' => $faker->name,
 				'done' => $faker->boolean(),
 				'estimation' => $faker->randomFloat(5, 0, 10),
-				'resolution_id' => $faker->numberBetween(0, 3),
+				'resolution_id' => $faker->numberBetween(1, 3),
+				'completed_at' => $faker->dateTimeThisYear,
 				'created_at' => $faker->dateTimeThisYear,
 				'updated_at' => $faker->dateTimeThisYear
 			]);
